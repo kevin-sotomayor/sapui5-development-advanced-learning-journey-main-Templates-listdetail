@@ -3,8 +3,9 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+	xmlns:f="sap.f"
 >
-     <Page id="idCarrierPage" title="{i18n>overviewPageTitle}">
+     <!-- <Page id="idCarrierPage" title="{i18n>overviewPageTitle}">
         <content>
         <Table id="carrierTable" items="{/UX_C_Carrier_TP}">
         
@@ -32,5 +33,28 @@
 
     </Table>
         </content>
-    </Page>
+    </Page> -->
+
+	<f:DynamicPage>
+		<f:content>
+			<List id="list"
+      			items="{/UX_C_Carrier_TP}"
+      			busyIndicatorDelay="0"
+      			growing="true"
+				growingThreshold="10"
+				growingScrollToLoad="true"
+				mode="SingleSelectMaster"
+				selectionChange="onSelect"
+			>
+				<items>
+					<ObjectListItem id="objectListItem"
+					title="{Carrname}"
+					intro="{Carrid}"
+					type="Inactive"
+					>
+					</ObjectListItem>
+				</items>
+			</List>
+		</f:content>
+	</f:DynamicPage>
 </mvc:View>
